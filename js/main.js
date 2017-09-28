@@ -43,7 +43,14 @@ function setLeaders(leaders) {
 /*--- websocket init and handlers ---*/
 
 // var ws = new ReconnectingWebSocket('ws://localhost:9001/leaderboard');
-var ws = new ReconnectingWebSocket('ws://gamebus-boards-production.apps-test.redhatkeynote.com/leaderboard');
+let hostname = location.hostname;
+//let hostname = "scoreboard-summit-game.192.168.42.60.nip.io";
+console.log("Served from hostname: " + hostname);
+hostname = hostname.replace('leaderboard','gamebus-boards');
+let socketUrl = 'ws://' + hostname + '/leaderboard';
+console.log("Opening websocket at " + socketUrl);
+//var ws = new ReconnectingWebSocket('ws://gamebus-boards-production.apps-test.redhatkeynote.com/leaderboard');
+var ws = new ReconnectingWebSocket(socketUrl);
 ws.onopen = function wsOpen() { console.log('websocket connection open'); };
 ws.onclose = function wsClose() { console.log('websocket connection closed'); };
 ws.onmessage = function wsMessage(msg) {
