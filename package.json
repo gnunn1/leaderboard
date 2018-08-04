@@ -27,7 +27,7 @@
   "Dependencies": {},
   "devDependencies": {
     "autoprefixer": "latest",
-    "browser-sync": "latest",
+    "browser-sync": "2.18.13",
     "browserify": "13.x",
     "clean-css": "latest",
     "node-sass": "latest",
