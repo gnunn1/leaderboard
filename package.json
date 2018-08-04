@@ -13,7 +13,7 @@
     "build-js": "browserify js/main.js -o build/bundle.js -dv",
     "build-min-js": "browserify js/main.js | uglifyjs -o build/main.min.js",
     "build-min-css": "cleancss styles/styles.css | gzip -9 -c > build/styles.css.gz",
-    "clean": " rm -rf build && rm -rf node_modules",
+    "clean": "rm -rf build && rm -rf node_modules",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-ify": "watchify js/main.js -o build/bundle.js -d",
     "watch-js": "nodemon -e js -w js -x 'npm run build-js'",
